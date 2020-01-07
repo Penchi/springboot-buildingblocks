@@ -1,4 +1,4 @@
-package com.penchi.restservices.contoller;
+package com.penchi.restservices.contollers;
 
 public class UserDetails {
 	private String firstName;

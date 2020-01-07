@@ -1,4 +1,4 @@
-package com.penchi.restservices.contoller;
+package com.penchi.restservices.contollers;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
