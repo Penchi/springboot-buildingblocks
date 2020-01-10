@@ -33,8 +33,8 @@ import com.penchi.restservices.services.UserService;
 
 @RestController
 @Validated
-@RequestMapping(value = "/versioning/uri/users")
-public class UserUriVersioningController {
+@RequestMapping(value = "/versioning/params/users")
+public class UserParameterVersioningController {
 
 	@Autowired
 	private UserService userService;
@@ -59,8 +59,8 @@ public class UserUriVersioningController {
 		}
 	}
 
-	// URI Versioning- V1
-	@GetMapping({ "/v1.0/{id}", "/v1.1/{id}" })
+	// Request Parameter Versioning- V1
+	@GetMapping(value = "/{id}", params = "version=1")
 	public UserDtoV1 getUserByIdV1(@PathVariable("id") @Min(1) Long id) throws UserNotFoundException {
 
 		Optional<User> optionalUser = userService.getUserById(id);
@@ -74,8 +74,8 @@ public class UserUriVersioningController {
 		return userDtoV1;
 	}
 
-	// URI Versioning- V2
-	@GetMapping({ "/v2.0/{id}" })
+	// Parameter Versioning- V2
+	@GetMapping(value = "/{id}", params = "version=2")
 	public UserDtoV2 getUserByIdV2(@PathVariable("id") @Min(1) Long id) throws UserNotFoundException {
 
 		Optional<User> optionalUser = userService.getUserById(id);
